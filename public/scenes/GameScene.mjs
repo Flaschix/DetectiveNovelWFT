@@ -213,7 +213,7 @@ export class GameScene extends Phaser.Scene {
         // Обработчик нажатия на кнопку "leave space"
         leaveButton.on('pointerdown', () => {
             // Логика выхода из игры
-            this.scene.start(CST.SCENE.MENU); // Например, переход на сцену меню
+            window.location.reload();
         });
 
         // Обработчик нажатия на кнопку "close"

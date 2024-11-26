@@ -13,13 +13,74 @@ export class GameScene extends Phaser.Scene {
         this.typingTimer = null; // Объявляем typingTimer как свойство класса
         this.currentCharacterIndex = 0; // Текущий индекс персонажа
         this.characters = [
-            { avatar: "character1", name: 'Anna', dialog: 'Good afternoon. What question would you like to ask me?', questions: ['Why were you seen sad in the street at 9:15 p.m.?', 'How was your work day at the museum?', 'Do you have any problems that may affect your work?', 'Did you notice anything unusual at the museum that evening?', 'Where were you when the theft occurred?'], answers: ['Yes, I was a little upset. I\'ve been having some personal problems lately that have been bothering me a lot.', 'It was a hard day, lots of visitors, lots of work. I was very tired. I think I left my bag and glasses at work.', 'I have financial difficulties because of my mother\'s illness. But I try not to bring my problems to work.', 'The museum was pretty quiet, I didn\'t notice anything suspicious.', 'I had already left work and was outside when the theft occurred.'] },
-            { avatar: "character2", name: 'Victor', dialog: 'Good afternoon. What question would you like to ask me?', questions: ['Where were you on the night of the theft?', 'Why were you seen on the street at 9.10pm, where were you rushing to?', 'Did you notice anything suspicious in the museum before you left?', 'What were your plans for the evening?', 'Why didn\'t you report the torn trousers to your superiors?'], answers: ['I was outside, running to the atelier to get my trousers repaired. They had torn at work and I wanted to tidy up before a meeting.', 'I was rushing to the atelier to get my trousers fixed. I had an important meeting with my ex-wife and I didn\'t want to look unkempt.', 'No, I didn\'t notice anything in particular. While I was on shift, it was business as usual.', 'I had a meeting with my ex-wife, from whom I\'ve been divorced for two years. I wanted to discuss something important.', 'It was the middle of the night and I didn\'t want to bother my superiors about nothing. I just wanted to solve the problem quickly.'] },
-            { avatar: "character3", name: 'Sam', dialog: 'Good afternoon. What question would you like to ask me?', questions: ['Why were you seen at 9.25pm in a white coat with a guitar case?', 'What did you do at the museum in the evening?', 'Do you have any special plans for the future related to your work?', 'Why do you socialise with people with criminal backgrounds?', 'How do you feel about your job at the museum?'], answers: ['I was returning to my workshop after a short break. I use the guitar case to store some of my instruments.', 'I stayed late at the museum to finalise a project. Sometimes work requires extra time.', 'I always strive to improve and dream of bigger projects. I hope my labours will be appreciated.', 'They are just old acquaintances. I have nothing to do with my current position and work at the museum.', 'I am very dedicated to my job, but like everyone else, I sometimes feel that my efforts are not always properly appreciated.'] },
+            { avatar: "character1", name: 'Anna', dialog: 'Hello! What would you like to talk about with me?', questions: ['Why were you seen sad in the street at 9:15 p.m.?', 'How was your work day at the museum?', 'Do you have any problems that may affect your work?', 'Did you notice anything unusual at the museum that evening?', 'Where were you when the theft occurred?'], answers: ['Yes, I was a little upset. I\'ve been having some personal problems lately that have been bothering me a lot.', 'It was a hard day, lots of visitors, lots of work. I was very tired. I think I left my bag and glasses at work.', 'I have financial difficulties because of my mother\'s illness. But I try not to bring my problems to work.', 'The museum was pretty quiet, I didn\'t notice anything suspicious.', 'I had already left work and was outside when the theft occurred.'] },
             {
-                avatar: "character4", name: 'Michael', dialog: 'Good afternoon. What question would you like to ask me?', questions: ['Why did you meet Irene at the museum?', 'Why were you seen with a backpack at 9:45 p.m. on the street?', 'Did you leave your camera at the museum? Why?', 'You dream of travelling the world with Irene, how do you plan to pay for that?', 'What have you done in other museums where you\'ve been spotted acting suspiciously?'], answers: ['We decided to spend an evening at the museum to enjoy the art and spend time together. We had been planning this date for a long time.', 'I always carry a backpack with me, it holds my stuff. There\'s nothing special about it.', 'I must have left it there by accident. We were in a hurry when we left.', 'We have been dreaming of travelling for a long time and now we are just saving money for this dream.', 'Oh, those were misunderstandings. I was just sketching and researching exhibits for my projects.']
+                avatar: "character2", name: 'Victor', dialog: 'What do you want?',
+                questions: [
+                    'Where were you on the night of the theft?',
+                    'Why were you seen on the street at 9:10 PM? Where were you rushing to?',
+                    'Did you see anything suspicious in the museum before you left?',
+                    'What were your plans for the evening?',
+                    'Why didn’t you report your torn pants to your boss?'
+                ],
+                answers: [
+                    'I was outside, running to the atelier to get my trousers repaired. They had torn at work and I wanted to tidy up before a meeting.',
+                    'I told you, I was trying to get my pants fixed! I had an important meeting with my soon-to-be ex-wife and I was running late.',
+                    'I didn\'t see anything. Anything else?',
+                    'Oh, just great plans. Meeting with my wife and my divorce lawyer.',
+                    'What’s it to you? I was in a hurry. Happy now?'
+                ]
             },
-            { avatar: "character5", name: 'Irene', dialog: 'Good afternoon. What question would you like to ask me?', questions: ['What were you doing at the museum that evening?', 'Why was your pendant found in the museum?', 'Where did you go after the museum at 9:45 p.m.?', 'Why did you want to meet Michael at the museum?', 'Why was your camera found at the museum?'], answers: ['Michael and I decided to meet at the museum to spend time away from prying eyes. We had been planning to do this for a long time.', 'I didn\'t even notice that I had lost my pendant. Perhaps it fell when I was taking off my coat.', 'We just decided to take a walk after the museum. We met on the street to discuss future plans.', 'We both love art, and the museum was a great place to meet. It was just a date.', 'Oh, it\'s Michael\'s camera. He must have accidentally left it behind in a hurry.'] }
+            {
+                avatar: "character3", name: 'Sam', dialog: 'What happened?',
+                questions: [
+                    'Why were you seen at 9.25pm in a white coat with a guitar case?',
+                    'What did you do at the museum in the evening?',
+                    'Do you have any special plans for the future related to your work?',
+                    'Do you have any ideas why someone might want to steal this painting?',
+                    'How much do you think the missing painting is worth?'],
+                answers: [
+                    'I was returning to my workshop after a short break. I use the guitar case to store some of my instruments.',
+                    'I stayed late at the museum to finalise a project. Sometimes work requires extra time.',
+                    'I always strive to improve and dream of bigger projects. I hope my labours will be appreciated.',
+                    'I guess people who are really desperate for money.',
+                    'It\'s priceless. It\'s worth much more than just the canvas and paint.'
+                ]
+            },
+            {
+                avatar: "character4", name: 'Michael', dialog: 'Good evening. How can I help you?',
+                questions: [
+                    'Why did you meet Irene at the museum?',
+                    'Why were you seen with a backpack at 9:45 p.m. on the street?',
+                    'Did you leave your camera and laptop at the museum? Why?',
+                    'What have you done in other museums where you\'ve been spotted acting suspiciously?',
+                    'Does Irene help you?'
+                ],
+                answers: [
+                    'We decided to spend an evening at the museum to enjoy the art and spend time together. We had been planning this date for a long time.',
+                    'I always carry a backpack with me, it holds my stuff. There\'s nothing special about it.',
+                    'I must have left it there by accident. We were in a hurry when we left.',
+                    'Oh, those were misunderstandings. I was just sketching and researching exhibits for my projects. Something like investigations. I study cases of missing rare artifacts. You see, these kinds of cases are definitely investigated worse than serial murders. But someone needs to take care of it, right?',
+                    'Well, at first I really got a lot of useful info from her, but now I\'m starting to really like her.'
+                ]
+            },
+            {
+                avatar: "character5", name: 'Irene', dialog: 'I\'m glad to help you with the investigation!',
+                questions: [
+                    'What were you doing at the museum that evening?',
+                    'Why was your pendant found in the museum?',
+                    'Where did you go after the museum at 9:45 p.m.?',
+                    'Why did you want to meet Michael at the museum?',
+                    'What did you talk about on the date?'
+                ],
+                answers: [
+                    'Michael and I decided to meet at the museum to spend time away from prying eyes. We had been planning to do this for a long time.',
+                    'I didn\'t even notice that I had lost my pendant. Perhaps it fell when I was taking off my coat.',
+                    'We just decided to take a walk after the museum. We met on the street to discuss future plans.',
+                    'We both love art, and the museum was a great place to meet. It was just a date.',
+                    'We always talk about art. Hmm, now that I think about it, he doesn’t really ask me about anything else...'
+                ]
+            }
         ];
     }
 

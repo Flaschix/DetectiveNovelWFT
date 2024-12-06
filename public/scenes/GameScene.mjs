@@ -2,9 +2,9 @@ import { CST } from "../CST.mjs";
 
 const xS = 510;
 const yS = 40;
-const yD = 65;
+const yD = 70;
 const widnth = 650;
-const height = 50;
+const height = 60;
 const round = 10;
 
 export class GameScene extends Phaser.Scene {
@@ -13,72 +13,89 @@ export class GameScene extends Phaser.Scene {
         this.typingTimer = null; // Объявляем typingTimer как свойство класса
         this.currentCharacterIndex = 0; // Текущий индекс персонажа
         this.characters = [
-            { avatar: "character1", name: 'Anna', dialog: 'Hello! What would you like to talk about with me?', questions: ['Why were you seen sad in the street at 9:15 p.m.?', 'How was your work day at the museum?', 'Do you have any problems that may affect your work?', 'Did you notice anything unusual at the museum that evening?', 'Where were you when the theft occurred?'], answers: ['Yes, I was a little upset. I\'ve been having some personal problems lately that have been bothering me a lot.', 'It was a hard day, lots of visitors, lots of work. I was very tired. I think I left my bag and glasses at work.', 'I have financial difficulties because of my mother\'s illness. But I try not to bring my problems to work.', 'The museum was pretty quiet, I didn\'t notice anything suspicious.', 'I had already left work and was outside when the theft occurred.'] },
             {
-                avatar: "character2", name: 'Victor', dialog: 'What do you want?',
+                avatar: "character5", name: 'Irene', dialog: 'What do you want to know?',
                 questions: [
-                    'Where were you on the night of the theft?',
-                    'Why were you seen on the street at 9:10 PM? Where were you rushing to?',
-                    'Did you see anything suspicious in the museum before you left?',
-                    'What were your plans for the evening?',
-                    'Why didn’t you report your torn pants to your boss?'
+                    'What can you say about your colleagues?',
+                    'Have you seen anything suspicious lately?',
+                    'What do you mean by Victor\'s past ? How do you know about that?',
+                    'What were you doing the evening the painting disappeared?',
+                    'Who could have wanted to steal the painting?'
                 ],
                 answers: [
-                    'I was outside, running to the atelier to get my trousers repaired. They had torn at work and I wanted to tidy up before a meeting.',
-                    'I told you, I was trying to get my pants fixed! I had an important meeting with my soon-to-be ex-wife and I was running late.',
-                    'I didn\'t see anything. Anything else?',
-                    'Oh, just great plans. Meeting with my wife and my divorce lawyer.',
-                    'What’s it to you? I was in a hurry. Happy now?'
+                    'There’s a grumpy security guard, an old restorer, a fantastic photographer, and a quiet tour guide. Poor thing, her mother is sick, and the treatment costs quite a bit. Of course, Victor is helping her out... But I totally get her—I’d do anything to help someone I love.',
+                    'Just two days ago, I saw Anna crying her eyes out, and Victor was trying to comfort her. He said he’d find her some money. It\'s no surprise he wants to help her—if it weren’t for Anna, he wouldn’t even have gotten this job, not with his personality and terrible past. You can ask Sam—they had a huge fight in front of everyone the night before the painting went missing. Oh man, what a scene that was, ha-ha-ha! He even managed to get into it with Michael—attacked him on the street, can you believe it?',
+                    'I mean his criminal past, of course. I’m just naturally curious, that’s all. A little observation goes a long way—it’s not hard. I’m surprised you don’t know about it yet.',
+                    'At first, it was a lovely evening! Mike and I were out walking, and we were having such a great time together! Then we headed back to my place for dinner. I was so nervous because I had planned a surprise for him that night—just the perfect gift for our perfect relationship! Everything was supposed to go smoothly; it was all going according to plan! But then it all went downhill! The museum director started calling us non-stop, and then the police got involved. Ugh! And here we are.',
+                    'Clearly, it’s someone who needs money. Have you seen it? The only thing beautiful about that painting is its price.'
                 ]
             },
             {
                 avatar: "character3", name: 'Sam', dialog: 'What happened?',
                 questions: [
-                    'Why were you seen at 9.25pm in a white coat with a guitar case?',
-                    'What did you do at the museum in the evening?',
-                    'Do you have any special plans for the future related to your work?',
-                    'Do you have any ideas why someone might want to steal this painting?',
-                    'How much do you think the missing painting is worth?'],
+                    'What can you say about your colleagues?',
+                    'You were seen arguing with Victor. What happened?',
+                    'When did this happen, and what exactly went missing?',
+                    'Did you notice anything suspicious on the day the painting went missing?',
+                    'Who could have wanted to steal the painting?'
+                ],
                 answers: [
-                    'I was returning to my workshop after a short break. I use the guitar case to store some of my instruments.',
-                    'I stayed late at the museum to finalise a project. Sometimes work requires extra time.',
-                    'I always strive to improve and dream of bigger projects. I hope my labours will be appreciated.',
-                    'I guess people who are really desperate for money.',
-                    'It\'s priceless. It\'s worth much more than just the canvas and paint.'
+                    'No one, nobody is doing their job properly! If everyone actually worked like they should, nothing like this would have happened!',
+                    'This young man needs to leave his personal life at the door when he comes to work! Everyone has their struggles, but that doesn’t mean you can neglect your responsibilities! Is it really that hard to sit and watch the cameras?! My... uh... tools went missing, and he didn’t even keep an eye on things! That’s outrageous! That’s why I decided to teach the kid a lesson!',
+                    'My tools, as I said… It was the day before the painting theft. Or maybe on the day of the theft. No, definitely the day before. Old age isn’t a joy! I even forgot where I left my pills!',
+                    'I don’t know anything like that! I just remember that Victor couldn’t find his key ring two days before the masterpiece went missing, but then he found it on his desk. The kid claims the keys were lost, but how did they suddenly appear back on his desk? I’m telling you, this is negligence, terrible negligence!',
+                    'Whoever stole that painting is an ignorant amateur who knows nothing about art! I can accept that my years of hard work have gone unappreciated, and that my paycheck has been delayed for months, but this! This is a real tragedy! That painting is worth so much more than just canvas and paint! It\'s priceless! But nobody gets that!'
+                ]
+            },
+            {
+                avatar: "character1", name: 'Anna', dialog: 'Hello. What did you want to ask me?',
+                questions: [
+                    'What can you say about your colleagues?',
+                    'You were seen crying at the security desk. What were you talking about with Victor?',
+                    'On the day of the theft, you were seen rushing down the street at 9:05 PM. Where were\nyou headed?',
+                    'Are you planning to quit the museum?',
+                    'Did you notice anything suspicious on the day the painting went missing?'
+                ],
+                answers: [
+                    'Well... Michael is new with us, so I don’t really know him that well. He’s into art and spends a lot of time at the museum. Sam has been with us for years; he’s very impressionable and can be tough to deal with, but he’s dedicated to his work. As for Irene... We’ve known each other for a long time, but I still feel awkward around her. I’m not in the easiest situation in my life, but I haven’t shared the details with anyone. I got chills when Irene suddenly said she sympathized with me and mentioned that my mom was diagnosed with something. We’ve never been close, and that really scared me.',
+                    'Haha... Seems like you can’t hide everything, right? I had a nervous breakdown, and Victor was just comforting me. We’re old friends but we don’t publicly share that. You see, he made some serious mistakes in the past by getting involved with the wrong people. He’s not into that anymore, but it would be impossible for him to get a decent job, so I decided to help him out. Please don’t tell him I told you this. Nobody else knows but the two of us. He’s a dependable guy and he’s changed for the better.',
+                    'I was heading to the hospital to see my mom. Luckily, the medical staff understands the situation and allows visits later than usually permitted.',
+                    'Did you find my resignation letter? Well, I’m seriously looking for a new job. They’ve been delaying my paycheck for months, and I can’t wait anymore. I’m really exhausted and I desperately need money to save my mom.',
+                    'I think it was a day or two before the incident. I saw Sam and Irene together by the painting. Instead of shouting back like he usually does, he just stood there listening to her. I was far away and didn’t hear what they were talking about. After he walked away, Irene suddenly turned to the painting, closed her eyes, and smiled. Then she even burst out laughing. I’m used to her quirks, but Sam’s behavior at that moment really unsettled me. He looked pale as a ghost.'
+                ]
+            },
+            {
+                avatar: "character2", name: 'Victor', dialog: 'What do you need?',
+                questions: [
+                    'What can you say about your colleagues?',
+                    'You were seen on the street at 9:10 PM. Where were you rushing off to?',
+                    'Did you notice anything suspicious on the day the painting went missing?',
+                    'Eyewitnesses say you had a fight with Michael at the museum entrance a few days\nbefore the painting disappeared. What happened?',
+                    'You were convicted in the past for dealing in stolen goods. That was art, wasn’t it?'
+                ],
+                answers: [
+                    'Do you really want to hear this? Because there won’t be anything nice to say.',
+                    'I was running to a tailor. My pants ripped right at work. I had a meeting with my almost-ex-wife, and I was running late.',
+                    'I saw a satisfied smirk from my dear still-wife after closing deal with that damned divorce lawyer. She clearly decided to screw me over in the asset division.',
+                    'Late one night, there was this sketchy guy wandering around the museum with a camera, peeking into windows. What the hell was I supposed to think? Yeah, I shouldn’t have jumped on him right away since it turned out to be our new guy with his digital girlfriend. God knows what’s going through Michael’s head. He claimed he was just taking pictures. But what? Old window frames? You really believe that nonsense?',
+                    'What the hell… I want a lawyer, and I’m not saying another word without him.'
                 ]
             },
             {
                 avatar: "character4", name: 'Michael', dialog: 'Good evening. How can I help you?',
                 questions: [
-                    'Why did you meet Irene at the museum?',
-                    'Why were you seen with a backpack at 9:45 p.m. on the street?',
-                    'Did you leave your camera and laptop at the museum? Why?',
-                    'What have you done in other museums where you\'ve been spotted acting suspiciously?',
-                    'Does Irene help you?'
+                    'What can you say about your colleagues?',
+                    'We found your laptop with a list of various missing exhibits. You’ve also been seen in\nother museums, and people find you suspicious. Explain yourself.',
+                    'Is Irene helping you with your investigations? You’re often seen together.',
+                    'On the night the painting disappeared, you were seen leaving the museum with Irene at\n8:55 PM. Where did you go next, and what were you doing?',
+                    'What have you discovered so far?'
                 ],
                 answers: [
-                    'We decided to spend an evening at the museum to enjoy the art and spend time together. We had been planning this date for a long time.',
-                    'I always carry a backpack with me, it holds my stuff. There\'s nothing special about it.',
-                    'I must have left it there by accident. We were in a hurry when we left.',
-                    'Oh, those were misunderstandings. I was just sketching and researching exhibits for my projects. Something like investigations. I study cases of missing rare artifacts. You see, these kinds of cases are definitely investigated worse than serial murders. But someone needs to take care of it, right?',
-                    'Well, at first I really got a lot of useful info from her, but now I\'m starting to really like her.'
-                ]
-            },
-            {
-                avatar: "character5", name: 'Irene', dialog: 'I\'m glad to help you with the investigation!',
-                questions: [
-                    'What were you doing at the museum that evening?',
-                    'Why was your pendant found in the museum?',
-                    'Where did you go after the museum at 9:45 p.m.?',
-                    'Why did you want to meet Michael at the museum?',
-                    'What did you talk about on the date?'
-                ],
-                answers: [
-                    'Michael and I decided to meet at the museum to spend time away from prying eyes. We had been planning to do this for a long time.',
-                    'I didn\'t even notice that I had lost my pendant. Perhaps it fell when I was taking off my coat.',
-                    'We just decided to take a walk after the museum. We met on the street to discuss future plans.',
-                    'We both love art, and the museum was a great place to meet. It was just a date.',
-                    'We always talk about art. Hmm, now that I think about it, he doesn’t really ask me about anything else...'
+                    'I like my colleagues. Each of them has their quirks, but overall, I think they’re good people.',
+                    'It’s all unfortunate misunderstandings... I was just taking photos and studying the exhibits for my work. I guess there’s no point in hiding it from you; I’m a private investigator. I was hired by the museum director to conduct an independent investigation into the disappearance of an ancient statue a month ago. I’m currently working undercover. We expected another theft would happen, just like in other museums, and that’s exactly what occurred.',
+                    'Oh no. No one knows I’m working undercover. Sometimes she says she wants to "help" me and that she "knows exactly what I need," and it makes me uneasy. She’s always been a bit too emotional; I think that’s just how she is. I’ve managed to gather a lot of useful information through her, but lately, she’s gotten too pushy and fixated on me, violating all kinds of personal boundaries. It’s interfering with the investigation, and it’s just not my style. The night of the theft, I was about to bring this up with her.',
+                    'We took a walk, then it got pretty chilly and Irene asked me to wait for her in the park while she ran to grab some coffee. There’s a café just around the corner from the museum that’s open late. But they didn’t have her favorite coffee, so we decided to go out for dinner instead. She seemed especially excited; I think she was hoping for something more, but I wanted to wrap things up that day. Anyway, the evening was disrupted by calls from the museum director; he was beside himself with rage.',
+                    'I have every reason to believe that Victor is involved in illegal trading of archaeological finds and works of art, and that he’s responsible for the disappearance of that ancient statue a month ago. I\'ve gathered some circumstantial evidence, but it’s not enough to press charges yet. But I’ll get to the bottom of this.'
                 ]
             }
         ];
@@ -192,7 +209,7 @@ export class GameScene extends Phaser.Scene {
             questionGraphics.fillRoundedRect(xS, yS + i * yD, widnth, height, round); // Параметры: x, y, width, height, радиус закругления
             questionGraphics.strokeRoundedRect(xS, yS + i * yD, widnth, height, round); // Параметры: x, y, width, height, радиус закругления
 
-            const questionText = this.add.text(xS + 15, yS + i * yD + 15, '', { font: '16px Arial', fill: '#87878C' });
+            const questionText = this.add.text(xS + 15, yS + i * yD + 10, '', { font: '16px Arial', fill: '#87878C' });
             questionGraphics.setInteractive(new Phaser.Geom.Rectangle(xS, yS + i * yD, widnth, height), Phaser.Geom.Rectangle.Contains);
             questionGraphics.on('pointerdown', () => {
                 const character = this.characters[this.currentCharacterIndex];
